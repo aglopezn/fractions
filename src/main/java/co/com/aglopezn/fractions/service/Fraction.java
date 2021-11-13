@@ -35,7 +35,7 @@ public class Fraction {
     }
 
     public Fraction simplify(){
-        int mcd = mcd(this.numerator, this.denominator);
+        int mcd = greatestCommonDivisor(this.numerator, this.denominator);
         return new Fraction(this.numerator / mcd, this.denominator / mcd);
     }
 
@@ -47,9 +47,8 @@ public class Fraction {
         return new Fraction(f.numerator * (-1), f.denominator);
     }
 
-    private int mcd(int a, int b){
-        if (b == 0) return a;
-        return mcd(b, a % b);
+    private int greatestCommonDivisor(int a, int b){
+        return (b == 0) ? a : greatestCommonDivisor(b, a % b);
     }
 
     @Override
